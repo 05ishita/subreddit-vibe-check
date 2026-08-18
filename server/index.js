@@ -10,13 +10,14 @@ app.get("/api/reddit/:subreddit/hot", async (req, res) => {
     const subreddit = req.params.subreddit;
 
     const response = await fetch(
-      `https://www.reddit.com/r/${subreddit}/hot.json?limit=50`,
-      {
-        headers: {
-          "User-Agent": "subreddit-vibe-check/1.0",
-        },
-      }
-    );
+  `https://www.reddit.com/r/${subreddit}/hot.json?limit=50`,
+  {
+    headers: {
+      "User-Agent": "web:subreddit-vibe-check:v1.0 (by /u/ishita)",
+      "Accept": "application/json",
+    },
+  }
+);
 
     if (!response.ok) {
       return res.status(response.status).json({
